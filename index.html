@@ -1,40 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website</title>
+    <meta charset="UTF-8">
+    <title>My Website Project</title>
 </head>
 <body>
 
-  <header>
-    <h1>My Website Project</h1>
-    <nav>
-      <a href="#about">About</a> |
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<h1>My Website Project</h1>
 
-  <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        This website was created for my SDEV 153 Website Development project.
-      </p>
-    </section>
+<nav>
+    <a href="#about">About</a> |
+    <a href="#contact">Contact</a>
+</nav>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:elmehdy@example.com">elmehdy@example.com</a>
-      </p>
-    </section>
-  </main>
+<hr>
 
-  <footer>
-    <p>&copy; 2026 El Mehdy</p>
-  </footer>
+<section id="about">
+    <h2>About</h2>
+    <p>This website was created for my SDEV 153 Website Development project.</p>
+</section>
+
+<hr>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>Name:</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <p id="message"></p>
+</section>
+
+<hr>
+
+<footer>
+    <p>© 2026 El Mehdy</p>
+</footer>
+
+<script>
+
+// Array example
+let allowedDomains = ["gmail.com", "yahoo.com", "outlook.com"];
+
+// Function + Conditional + Loop
+function validateForm() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message");
+
+    if (name === "" || email === "") {
+        message.textContent = "Please fill out all fields.";
+        return false;
+    }
+
+    let emailParts = email.split("@");
+    let domain = emailParts[1];
+    let validDomain = false;
+
+    for (let i = 0; i < allowedDomains.length; i++) {
+        if (domain === allowedDomains[i]) {
+            validDomain = true;
+        }
+    }
+
+    if (!validDomain) {
+        message.textContent = "Please use a valid email domain (gmail, yahoo, outlook).";
+        return false;
+    }
+
+    message.textContent = "Form submitted successfully!";
+    return false;
+}
+
+</script>
 
 </body>
 </html>
