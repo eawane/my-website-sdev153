@@ -2,85 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Website Project</title>
+    <title>My Website Project - SDEV 153</title>
+    <meta name="description" content="Final Website Project for SDEV 153 at Ivy Tech.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, SDEV153, Ivy Tech">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-<h1>My Website Project</h1>
+<header>
+    <h1>My Website Project</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resources.html">Resources</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-<nav>
-    <a href="#about">About</a> |
-    <a href="#contact">Contact</a>
-</nav>
+<main>
+    <section>
+        <h2>Welcome</h2>
+        <p>This website was created for my SDEV 153 Website Development project at Ivy Tech.</p>
 
-<hr>
+        <img src="https://picsum.photos/400/250" alt="Sample project image">
+    </section>
 
-<section id="about">
-    <h2>About</h2>
-    <p>This website was created for my SDEV 153 Website Development project.</p>
-</section>
+    <section>
+        <h2>Skills List</h2>
+        <ul>
+            <li>HTML Structure</li>
+            <li>CSS Styling</li>
+            <li>JavaScript Validation</li>
+        </ul>
+    </section>
 
-<hr>
+    <section>
+        <h2>Project Table</h2>
+        <table>
+            <tr>
+                <th>Technology</th>
+                <th>Used In Project</th>
+            </tr>
+            <tr>
+                <td>HTML</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>CSS</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>Yes</td>
+            </tr>
+        </table>
+    </section>
 
-<section id="contact">
-    <h2>Contact</h2>
+    <section>
+        <h2>External Links</h2>
+        <a href="https://www.w3schools.com" target="_blank">W3Schools</a><br>
+        <a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a><br>
+        <a href="https://validator.w3.org/" target="_blank">HTML Validator</a>
+    </section>
 
-    <form onsubmit="return validateForm()">
-        <label>Name:</label><br>
-        <input type="text" id="name"><br><br>
+    <section>
+        <h2>Contact Form</h2>
+        <form onsubmit="return validateForm()">
+            <label>Name:</label>
+            <input type="text" id="name">
 
-        <label>Email:</label><br>
-        <input type="text" id="email"><br><br>
+            <label>Email:</label>
+            <input type="email" id="email">
 
-        <input type="submit" value="Submit">
-    </form>
+            <label>Message:</label>
+            <textarea id="message"></textarea>
 
-    <p id="message"></p>
-</section>
-
-<hr>
+            <button type="submit">Submit</button>
+            <p id="formMsg"></p>
+        </form>
+    </section>
+</main>
 
 <footer>
     <p>© 2026 El Mehdy</p>
 </footer>
-
-<script>
-
-// Array example
-let allowedDomains = ["gmail.com", "yahoo.com", "outlook.com"];
-
-// Function + Conditional + Loop
-function validateForm() {
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message");
-
-    if (name === "" || email === "") {
-        message.textContent = "Please fill out all fields.";
-        return false;
-    }
-
-    let emailParts = email.split("@");
-    let domain = emailParts[1];
-    let validDomain = false;
-
-    for (let i = 0; i < allowedDomains.length; i++) {
-        if (domain === allowedDomains[i]) {
-            validDomain = true;
-        }
-    }
-
-    if (!validDomain) {
-        message.textContent = "Please use a valid email domain (gmail, yahoo, outlook).";
-        return false;
-    }
-
-    message.textContent = "Form submitted successfully!";
-    return false;
-}
-
-</script>
 
 </body>
 </html>
