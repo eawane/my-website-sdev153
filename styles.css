@@ -55,7 +55,12 @@ button:hover {
         padding: 10px;
     }
 
-    table {
-        width: 100%;
-    }
+   table {
+    width:100%;
+}
+
+/* Logo style */
+.logo{
+    width:90px;
+    margin-bottom:10px;
 }
